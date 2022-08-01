@@ -17,8 +17,6 @@
         state: "{{state}}"
       register: vpcout
       
-      when: vpcout.changed
-     
 #    - debug: 
  #       var: vpcout
         
@@ -34,8 +32,6 @@
           Name: Bharath-pubsub1
       register: pubsub1_out
       
-      when: pubsub1_out.changed
-      
     - name: Create public subnet2 in Zone2
       ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
@@ -48,8 +44,6 @@
           Name: Bharath-pubsub2
       register: pubsub2_out
       
-      when: pubsub2_out.changed
-      
     - name: Create public subnet3 in Zone3
       ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
@@ -61,6 +55,3 @@
         resource_tags:
           Name: Bharath-pubsub3
       register: pubsub3_out
-      
-      when: pubsub3_out.changed
-      
