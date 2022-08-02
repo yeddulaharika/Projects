@@ -71,13 +71,13 @@
     
 - name: Config setup
   copy:
-     content: |
-       [{rabbit, [{loopback_users, []}]}].
-     dest: /etc/rabbitmq/rabbitmq.config
-   notify:
-     - Restart RMQ
-   tags:
-     - conf
+    content: |
+      [{rabbit, [{loopback_users, []}]}].
+    dest: /etc/rabbitmq/rabbitmq.config
+  notify:
+    - Restart RMQ
+  tags:
+    - conf
   
 # If it's not necessary use rabbitmq_exporter uncoment 
 # - name: remove default guest user
