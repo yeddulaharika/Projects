@@ -19,7 +19,7 @@
     - name: Save private key into file sample-key.pem
       copy:
         content: "{{samplekey_out.key.private_key}}"
-        dest: "./sample-key.pem"
+        dest: "./sample_key.pem"
         mode: 0600
       when: samplekey_out.changed 
       
