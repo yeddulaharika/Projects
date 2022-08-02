@@ -1,11 +1,7 @@
 ---
 # tasks file for rabbitmq setup
 
-- name: Install nessesary package
-  apt: 
-    name: apt-transport-https
-    state: present
-    update_cache: yes
+
 
 - name: Download esl-erlang package
   get_url:
