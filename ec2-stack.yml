@@ -1,0 +1,26 @@
+---
+- name: Setup Stack
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Import VPC setup Variable
+      include_vars: ./output_vars
+
+    - name: Import stack setup Variable
+      include_vars: ./stack_setup
+      
+    - name: Create sample ec2 key
+      ec2_key:
+        name: sample
+        region: "{{region}}"
+      register: samplekey_out
+      
+    - name: Save private key into file sample-key.pem
+      copy:
+        content: "{{samplekey_out.key.private_key}}"
+        dest: "./sample-key.pem"
+        mode: 0600
+      when: samplekey_out.changed 
+      
+    
