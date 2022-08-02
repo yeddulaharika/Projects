@@ -23,4 +23,47 @@
         mode: 0600
       when: samplekey_out.changed 
       
-    
+    - name: Create Securiry Group for Load Balancer
+      ec2_group:
+        name: ec2ELB-sg
+        description: Allow port 80 from everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+      register: ec2ELBSG_out
+      
+    - name: Create Securiry Group for Ec2 Stack
+      ec2_group:
+        name: ec2Stack-sg
+        description: Allow port 22 from everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        purge_rules: no
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            group_id: "{{ec2ELBSG_out.group_id}}"
+
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            group_id: "{{BastionSGid}}"
+      register: ec2StackSG_out
+      
+    - name: Update Securiry Group with its own sg id
+      ec2_group:
+        name: ec2Stack-sg
+        description: Allow port 22 from everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        purge_rules: no
+        rules:
+          - proto: all
+            group_id: "{{ec2StackSG_out.group_id}}"
+            
+            
