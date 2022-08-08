@@ -14,3 +14,7 @@ EOF
 sudo apt-get update -y
 
 sudo apt-get install rabbitmq-server -y --fix-missing
+
+sudo service rabbitmq-server enable
+
+sudo service rabbitmq-server start
