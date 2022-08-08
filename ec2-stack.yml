@@ -84,7 +84,7 @@
           Project: Bharath
           Owner: DevOps Team
         group_id: "{{ec2StackSG_out.group_id}}"
-        vpc_subnet_id: "{{privsub1id}}"
+        vpc_subnet_id: "{{pubsub1id}}"
       register: web01_out 
       
     - name: Creating tomcat app01
