@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-SITE_URL = 'http://127.0.0.1:8732/'
+SITE_URL = 'http://0.0.0.0:8732/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', 'pydjango'),
         'USER': os.getenv('DB_USER', 'root'),
         'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+        'HOST': os.getenv('DB_HOST', '0.0.0.0'),
         'PORT': os.getenv('DB_PORT', '3306')
     }
 }
