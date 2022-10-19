@@ -71,7 +71,7 @@
         key_name: sample
         region: "{{region}}"
         instance_type: t2.micro
-        image_i: "{{nginx_ami}}"
+        image_id: "{{nginx_ami}}"
         wait: yes
         wait_timeout: 120
         tags:
