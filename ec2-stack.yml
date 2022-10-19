@@ -19,7 +19,7 @@
     - name: Save private key into file sample-key.pem
       copy:
         content: "{{samplekey_out.key.private_key}}"
-        dest: "./sample_key.pem"
+        dest: "./sample.pem"
         mode: 0600
       when: samplekey_out.changed 
       
@@ -74,16 +74,12 @@
         image: "{{nginx_ami}}"
         wait: yes
         wait_timeout: 120
-        instance_tags:
+        tags:
           Name: "web01"
           Project: Bharath
           Owner: DevOps Team
-        exact_count: 1
-        count_tag:
-          Name: "web01"
-          Project: Bharath
-          Owner: DevOps Team
-        group_id: "{{ec2StackSG_out.group_id}}"
+        network:
+          security_group: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: web01_out 
       
@@ -95,16 +91,12 @@
         image: "{{tomcat_ami}}"
         wait: yes
         wait_timeout: 120
-        instance_tags:
+        tags:
           Name: "app01"
           Project: Bharath
           Owner: DevOps Team
-        exact_count: 1
-        count_tag:
-          Name: "app01"
-          Project: Bharath
-          Owner: DevOps Team
-        group_id: "{{ec2StackSG_out.group_id}}"
+        network:
+          security_group: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: app01_out
 
@@ -116,16 +108,12 @@
         image: "{{memcache_ami}}"
         wait: yes
         wait_timeout: 120
-        instance_tags:
+        tags:
           Name: "mc01"
           Project: Bharath
           Owner: DevOps Team
-        exact_count: 1
-        count_tag:
-          Name: "mc01"
-          Project: Bharath
-          Owner: DevOps Team
-        group_id: "{{ec2StackSG_out.group_id}}"
+        network:
+          security_group: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: mc01_out
 
@@ -137,16 +125,12 @@
         image: "{{rmq_ami}}"
         wait: yes
         wait_timeout: 120
-        instance_tags:
+        tags:
           Name: "rmq01"
           Project: Bharath
           Owner: DevOps Team
-        exact_count: 1
-        count_tag:
-          Name: "rmq01"
-          Project: Bharath
-          Owner: DevOps Team
-        group_id: "{{ec2StackSG_out.group_id}}"
+        network:
+          security_group: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: rmq01_out
 
@@ -158,16 +142,12 @@
         image: "{{mysql_ami}}"
         wait: yes
         wait_timeout: 120
-        instance_tags:
+        tags:
           Name: "db01"
           Project: Bharath
           Owner: DevOps Team
-        exact_count: 1
-        count_tag:
-          Name: "db01"
-          Project: Bharath
-          Owner: DevOps Team
-        group_id: "{{ec2StackSG_out.group_id}}"
+        network:
+          security_group: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: db01_out
 
@@ -204,8 +184,8 @@
     
     - name: Copy sample key to provision_stack directory
       copy:
-        src: sample_key.pem
-        dest: provision-stack/sample_key.pem
+        src: sample.pem
+        dest: provision-stack/sample.pem
         mode: '0400'
 
     - name: Insert/Update Inventory file provision-stack/inventory-Bharath
@@ -246,6 +226,6 @@
           
           [stack_inst:vars]
           ansible_user=ubuntu
-          ansible_ssh_private_key_file=sample_key.pem
+          ansible_ssh_private_key_file=sample.pem
           #ansible_python_interpreter=/usr/bin/python3
       
