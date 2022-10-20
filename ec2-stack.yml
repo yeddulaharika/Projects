@@ -78,8 +78,7 @@
           Name: "web01"
           Project: Bharath
           Owner: DevOps Team
-        network:
-          security_group: "{{ec2StackSG_out.group_id}}"
+        security_groups: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: web01_out 
       
@@ -95,8 +94,7 @@
           Name: "app01"
           Project: Bharath
           Owner: DevOps Team
-        network:
-          security_group: "{{ec2StackSG_out.group_id}}"
+        security_groups: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: app01_out
 
@@ -112,8 +110,7 @@
           Name: "mc01"
           Project: Bharath
           Owner: DevOps Team
-        network:
-          security_group: "{{ec2StackSG_out.group_id}}"
+        security_groups: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: mc01_out
 
@@ -129,8 +126,7 @@
           Name: "rmq01"
           Project: Bharath
           Owner: DevOps Team
-        network:
-          security_group: "{{ec2StackSG_out.group_id}}"
+        security_groups: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: rmq01_out
 
@@ -146,8 +142,7 @@
           Name: "db01"
           Project: Bharath
           Owner: DevOps Team
-        network:
-          security_group: "{{ec2StackSG_out.group_id}}"
+        security_groups: "{{ec2StackSG_out.group_id}}"
         vpc_subnet_id: "{{privsub1id}}"
       register: db01_out
 
