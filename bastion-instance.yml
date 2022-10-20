@@ -49,8 +49,7 @@
           Name: "Bastion_host"
           Project: Bharath
           Owner: Devops Team
-        network:
-          security_group: "{{BastionSG_out.group_id}}"
+        security_groups: "{{BastionSG_out.group_id}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out
       
