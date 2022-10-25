@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: example-app
-        image: aimvector/csharp:1.0.0
+        image: bharathsharath/dot-net
         imagepullpolicy: Always
         ports:
         - containerPort: 5000
