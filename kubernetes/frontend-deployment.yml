@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: react
+  name: reactt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactt
+  template:
+    metadata:
+      labels:
+        app: reactt
+    spec:
+      containers:
+        - name: front-end
+          image: bharathsharath/frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
