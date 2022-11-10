@@ -11,3 +11,9 @@ $ mongo
 # to create a collection in mongo
 $ db.createCollection("web")
 $ show collections
+
+
+configuration of mongodb
+
+vi /etc/mongodb.conf------------------🡪 0.0.0.0
+and remove the # from port = 27017
