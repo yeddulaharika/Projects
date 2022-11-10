@@ -1,0 +1,13 @@
+Launch an ec2-instance (Ubuntu)
+
+And install Mongo dB 
+$ sudo apt update && sudo apt upgrade
+$ sudo apt install -y mongodb
+$ sudo systemctl status mongodb
+# starting mongo
+$ sudo systemctl start mongod
+# to start shell
+$ mongo
+# to create a collection in mongo
+$ db.createCollection("web")
+$ show collections
