@@ -53,7 +53,7 @@ version="1.0">
 -->
   <role rolename="manager-gui"/>
   <role rolename="manager-script"/>
-  <user username="tomcat" password="admin123" roles="manager-gui,manager-script"/>
+  <user username="admin" password="admin" roles="manager-gui,manager-script"/>
 </tomcat-users>
 EOT
 
