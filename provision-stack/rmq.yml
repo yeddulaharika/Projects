@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Transfer executable script script
-      copy: src=/home/ubuntu/ansible-aws-vpc/provision-stack/rmq01.sh dest=/home/ubuntu mode=0777
+      copy: src=/home/ubuntu/Projects/provision-stack/rmq01.sh dest=/home/ubuntu mode=0777
 
     - name: Execute the script
       command: sh /home/ubuntu/rmq01.sh
