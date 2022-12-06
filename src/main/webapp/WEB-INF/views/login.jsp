@@ -44,8 +44,8 @@
                                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
                                     class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="${contextPath}/index">VISUAL PATH</a>
-                            <i class="brand_network"><small><small>VProfile</small></small></i>
+                            <a class="navbar-brand" href="${contextPath}/index">SKILLRARY</a>
+                            <i class="brand_network"><small><small></small></small></i>
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
 	
     <form method="POST" action="${contextPath}/login" class="form-signin">
         <h2 class="form-heading" align="center"> LOGIN </h2>
-		<img  class="logo" src="${contextPath}/resources/Images/visualpathlogo3.png" />
+		<img  class="logo" src="${contextPath}/resources/Images/skillrarylogo.png" />
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
             <input name="username" type="text" class="form-control" placeholder="Username"/>
