@@ -16,9 +16,9 @@
 
     - name: Clone source code from github
       git:
-        repo: 'https://github.com/devopshydclub/vprofile-project.git'
+        repo: 'https://github.com/BharathSharath/Projects.git'
         dest: ./Bharath-repo
-        version: vp-rem
+        version: source-for-ansible
       register: git_status
 
 
